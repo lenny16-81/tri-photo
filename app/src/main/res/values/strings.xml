@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tri photo</string>
+    <string name="keep">GARDER</string>
+    <string name="drop">SUPPRIMER</string>
+    <string name="perm_text">Pour trier et supprimer tes photos, l\'app a besoin d\'accéder à ta galerie. Rien ne quitte ton téléphone.</string>
+    <string name="perm_btn">Autoriser l\'accès</string>
+    <string name="perm_settings">Ouvrir les réglages</string>
+    <string name="perm_denied">Accès refusé. Autorise « Photos » pour Tri photo dans les réglages d\'Android.</string>
+    <string name="delete_now">Supprimer maintenant</string>
+    <string name="review_all">Revoir toutes les photos</string>
+    <string name="undo">↶</string>
+    <string name="no">✕</string>
+    <string name="yes">✓</string>
+</resources>

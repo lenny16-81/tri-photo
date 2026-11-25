@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'ch.lenny.triphoto'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'ch.lenny.triphoto'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Clé fixe : chaque nouvelle version s'installe par-dessus l'ancienne.
+    signingConfigs {
+        fixed {
+            storeFile file('tri.keystore')
+            storePassword 'triphoto'
+            keyAlias 'tri'
+            keyPassword 'triphoto'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.fixed
+        }
+        debug {
+            signingConfig signingConfigs.fixed
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
