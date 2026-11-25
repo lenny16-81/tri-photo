@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -202,8 +203,7 @@ public class MainActivity extends Activity {
             final List<Photo> list = new ArrayList<>();
             final Set<String> existing = new HashSet<>();
             String[] proj = {MediaStore.Images.Media._ID};
-            String order = MediaStore.Images.Media.DATE_ADDED + " DESC";
-            try (Cursor c = getContentResolver().query(IMAGES, proj, null, null, order)) {
+                        try (Cursor c = getContentResolver().query(IMAGES, proj, null, null, null)) {
                 if (c != null) {
                     int col = c.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
                     while (c.moveToNext()) {
@@ -216,6 +216,8 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 main.post(() -> toast("Impossible de lire la galerie : " + e.getMessage()));
             }
+            // Ordre aléatoire : un nouveau mélange à chaque chargement.
+            Collections.shuffle(list);
             main.post(() -> {
                 photos.clear();
                 photos.addAll(list);
